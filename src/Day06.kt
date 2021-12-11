@@ -31,7 +31,6 @@ fun main() {
     }
 
     val testInput = readInput("Day06_test")
-    println(part1(testInput))
     check(part1(testInput) == 5934)
     check(part2(testInput) == 26984457539L)
 
