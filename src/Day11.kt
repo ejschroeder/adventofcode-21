@@ -13,8 +13,6 @@ fun main() {
 
     fun simulateStep(grid: List<MutableList<Int>>): Int {
         val queue = ArrayDeque<Coord>()
-        val flashes = HashSet<Coord>()
-
         for (i in grid.indices) {
             for (j in grid[i].indices) {
                 grid[i][j]++
@@ -24,6 +22,7 @@ fun main() {
             }
         }
 
+        val flashes = HashSet<Coord>()
         while (queue.isNotEmpty()) {
             val coord = queue.removeFirst()
 
@@ -62,7 +61,7 @@ fun main() {
     }
 
     fun part2(input: List<String>): Int {
-        val grid = input.map { line -> line.asIterable().map { it.digitToInt() }.toMutableList() }
+        val grid = input.map { line -> line.map { it.digitToInt() }.toMutableList() }
         val totalOctopi = grid.size * grid.first().size
         
         var flashCount = 0
