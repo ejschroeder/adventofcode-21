@@ -29,7 +29,7 @@ fun main() {
         return findAllPaths(dest, listOf(src), mapOf(), adjMap)
     }
 
-    fun part1(input: List<String>): Int {
+    fun parseInputToAdjacencyLists(input: List<String>): Map<String, List<String>> {
         val adjMap = input.asSequence()
             .map { it.split("-") }
             .flatMap { listOf(it, it.reversed()) }
@@ -39,21 +39,18 @@ fun main() {
                 if (first) listOf(element.second) else accumulator?.plus(element.second)
             }
             .mapValues { it.value ?: listOf() }
+        return adjMap
+    }
+
+    fun part1(input: List<String>): Int {
+        val adjMap = parseInputToAdjacencyLists(input)
 
         val paths = findAllPaths("start", "end", adjMap)
         return paths.size
     }
 
     fun part2(input: List<String>): Int {
-        val adjMap = input.asSequence()
-            .map { it.split("-") }
-            .flatMap { listOf(it, it.reversed()) }
-            .map { it.first() to it.last() }
-            .groupingBy { it.first }
-            .aggregate { _, accumulator: List<String>?, element, first ->
-                if (first) listOf(element.second) else accumulator?.plus(element.second)
-            }
-            .mapValues { it.value ?: listOf() }
+        val adjMap = parseInputToAdjacencyLists(input)
 
         val paths = findAllPathsPart2("start", "end", adjMap)
         return paths.size
