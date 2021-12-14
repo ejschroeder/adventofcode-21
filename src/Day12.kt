@@ -6,19 +6,22 @@ fun main() {
         val seen = visited + currentNode
         val neighbors = adjMap[currentNode] ?: throw Exception("Missing adjacency list for node '$currentNode'")
 
-        return neighbors.filter { it.isUpperCase() || it !in seen }
+        return neighbors.filter { it != "start" }
+            .filter { it.isUpperCase() || it !in seen }
             .flatMap { findAllPaths(dest, currPath + it, seen, adjMap)  }
     }
 
-    fun findAllPaths(dest: String, currPath: List<String>, visitCounts: Map<String, Int>, adjMap: Map<String, List<String>>): List<List<String>> {
+    fun findAllPaths(dest: String, currPath: List<String>, visitCounts: Map<String, Int>, adjMap: Map<String, List<String>>, singleVisitOnly: Boolean = true): List<List<String>> {
         val currentNode = currPath.last()
         if (currentNode == dest) return listOf(currPath)
 
+        val updatedCounts = visitCounts + (currentNode to (visitCounts[currentNode]?.plus(1) ?: 1))
+        val visitedTwice = updatedCounts.entries.any { !it.key.isUpperCase() && it.value > 1 }
         val neighbors = adjMap[currentNode] ?: throw Exception("Missing adjacency list for node '$currentNode'")
-        val visitedTwice = visitCounts.entries.any { !it.key.isUpperCase() && it.value > 1 }
 
-        return neighbors.filter { it != "start" && (it.isUpperCase() || !visitedTwice || it !in visitCounts) }
-            .flatMap { findAllPaths(dest, currPath + it, visitCounts + (it to (visitCounts[it]?.plus(1) ?: 1)), adjMap)  }
+        return neighbors.filter { it != "start" }
+            .filter { it.isUpperCase() || it !in updatedCounts || (singleVisitOnly && !visitedTwice) }
+            .flatMap { findAllPaths(dest, currPath + it, updatedCounts, adjMap)  }
     }
 
     fun findAllPaths(src: String, dest: String, adjMap: Map<String, List<String>>): List<List<String>> {
@@ -26,7 +29,7 @@ fun main() {
     }
 
     fun findAllPathsPart2(src: String, dest: String, adjMap: Map<String, List<String>>): List<List<String>> {
-        return findAllPaths(dest, listOf(src), mapOf(), adjMap)
+        return findAllPaths(dest, listOf(src), mapOf(), adjMap, singleVisitOnly = false)
     }
 
     fun parseInputToAdjacencyLists(input: List<String>): Map<String, List<String>> {
