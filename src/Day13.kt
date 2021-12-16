@@ -14,7 +14,7 @@ fun main() {
     }
 
     fun printDots(dots: Iterable<Dot>) {
-        val display = Array(dots.maxOf { it.y } + 1) { Array(dots.maxOf { it.x } + 1) { "." } }
+        val display = Array(dots.maxOf { it.y } + 1) { Array(dots.maxOf { it.x } + 1) { " " } }
         dots.forEach { display[it.y][it.x] = "#" }
         display.forEach { line -> println(line.joinToString("") { it }) }
     }
@@ -25,18 +25,15 @@ fun main() {
 
     fun part1(input: List<String>): Int {
         val (initialDots, instructions) = parseInput(input)
-        val dots = fold(initialDots, instructions.first())
-
-        return dots.toSet().size
+        return fold(initialDots, instructions.first()).distinct().size
     }
 
     fun part2(input: List<String>): Set<Dot> {
         val (initialDots, instructions) = parseInput(input)
-        val dots = instructions
-            .fold(initialDots) { dots, instruction -> fold(dots, instruction) }
-            .toSet()
 
-        return dots
+        return instructions
+            .fold(initialDots, ::fold)
+            .toSet()
     }
 
     val testInput = readInputLines("Day13_test")
