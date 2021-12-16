@@ -44,11 +44,11 @@ fun main() {
         return o2Rating * co2Rating
     }
 
-    val testInput = readInput("Day03_test")
+    val testInput = readInputLines("Day03_test")
     check(part1(testInput) == 198)
     check(part2(testInput) == 230)
 
-    val input = readInput("Day03")
+    val input = readInputLines("Day03")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

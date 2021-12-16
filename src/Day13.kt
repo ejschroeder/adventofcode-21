@@ -39,10 +39,10 @@ fun main() {
         return dots
     }
 
-    val testInput = readInput("Day13_test")
+    val testInput = readInputLines("Day13_test")
     check(part1(testInput) == 17)
 
-    val input = readInput("Day13")
+    val input = readInputLines("Day13")
     println("Part 1: " + part1(input))
     println("Part 2:")
     printDots(part2(input))

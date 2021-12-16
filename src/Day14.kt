@@ -54,11 +54,11 @@ fun main() {
         return counts.maxOf { it.value } - counts.minOf { it.value }
     }
 
-    val testInput = readInput("Day14_test")
+    val testInput = readInputLines("Day14_test")
     check(part1(testInput) == 1588L)
     check(part2(testInput) == 2188189693529L)
 
-    val input = readInput("Day14")
+    val input = readInputLines("Day14")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

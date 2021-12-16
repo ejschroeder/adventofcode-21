@@ -33,11 +33,11 @@ fun main() {
         return 0
     }
 
-    val testInput = readInput("Day04_test")
+    val testInput = readInputLines("Day04_test")
     check(part1(testInput) == 4512)
     check(part2(testInput) == 1924)
 
-    val input = readInput("Day04")
+    val input = readInputLines("Day04")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

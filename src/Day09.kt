@@ -54,11 +54,11 @@ fun main() {
             .reduce { acc, i -> acc * i }
     }
 
-    val testInput = readInput("Day09_test")
+    val testInput = readInputLines("Day09_test")
     check(part1(testInput) == 15)
     check(part2(testInput) == 1134)
 
-    val input = readInput("Day09")
+    val input = readInputLines("Day09")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

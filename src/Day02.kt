@@ -37,11 +37,11 @@ fun main() {
         return finalPos.x * finalPos.y
     }
 
-    val testInput = readInput("Day02_test")
+    val testInput = readInputLines("Day02_test")
     check(part1(testInput) == 150)
     check(part2(testInput) == 900)
 
-    val input = readInput("Day02")
+    val input = readInputLines("Day02")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

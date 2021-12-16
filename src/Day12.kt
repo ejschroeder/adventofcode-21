@@ -59,9 +59,9 @@ fun main() {
         return paths.size
     }
 
-    val testInput1 = readInput("Day12_test1")
-    val testInput2 = readInput("Day12_test2")
-    val testInput3 = readInput("Day12_test3")
+    val testInput1 = readInputLines("Day12_test1")
+    val testInput2 = readInputLines("Day12_test2")
+    val testInput3 = readInputLines("Day12_test3")
 
     check(part1(testInput1) == 10)
     check(part1(testInput2) == 19)
@@ -71,7 +71,7 @@ fun main() {
     check(part2(testInput2) == 103)
     check(part2(testInput3) == 3509)
 
-    val input = readInput("Day12")
+    val input = readInputLines("Day12")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

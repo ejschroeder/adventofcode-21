@@ -74,11 +74,11 @@ fun main() {
         return step
     }
 
-    val testInput = readInput("Day11_test")
+    val testInput = readInputLines("Day11_test")
     check(part1(testInput) == 1656)
     check(part2(testInput) == 195)
 
-    val input = readInput("Day11")
+    val input = readInputLines("Day11")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

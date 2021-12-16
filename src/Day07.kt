@@ -22,11 +22,11 @@ fun main() {
         return (minPos..maxPos).map { calcPolynomialFuelCost(it, positions) }.minByOrNull { it }
     }
 
-    val testInput = readInput("Day07_test")
+    val testInput = readInputLines("Day07_test")
     check(part1(testInput) == 37)
     check(part2(testInput) == 168)
 
-    val input = readInput("Day07")
+    val input = readInputLines("Day07")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

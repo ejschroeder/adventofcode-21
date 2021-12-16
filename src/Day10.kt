@@ -18,11 +18,11 @@ fun main() {
         return points[points.size / 2]
     }
 
-    val testInput = readInput("Day10_test")
+    val testInput = readInputLines("Day10_test")
     check(part1(testInput) == 26397)
     check(part2(testInput) == 288957L)
 
-    val input = readInput("Day10")
+    val input = readInputLines("Day10")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

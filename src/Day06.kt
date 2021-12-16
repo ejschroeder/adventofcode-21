@@ -30,11 +30,11 @@ fun main() {
         return startingState.map { 256 + (9 - it) }.sumOf(::getPopulationFromNewFish)
     }
 
-    val testInput = readInput("Day06_test")
+    val testInput = readInputLines("Day06_test")
     check(part1(testInput) == 5934)
     check(part2(testInput) == 26984457539L)
 
-    val input = readInput("Day06")
+    val input = readInputLines("Day06")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

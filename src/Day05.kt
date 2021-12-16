@@ -29,11 +29,11 @@ fun main() {
             .count()
     }
 
-    val testInput = readInput("Day05_test")
+    val testInput = readInputLines("Day05_test")
     check(part1(testInput) == 5)
     check(part2(testInput) == 12)
 
-    val input = readInput("Day05")
+    val input = readInputLines("Day05")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

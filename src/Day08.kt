@@ -13,11 +13,11 @@ fun main() {
             .sumOf(::solveWiring)
     }
 
-    val testInput = readInput("Day08_test")
+    val testInput = readInputLines("Day08_test")
     check(part1(testInput) == 26)
     check(part2(testInput) == 61229)
 
-    val input = readInput("Day08")
+    val input = readInputLines("Day08")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

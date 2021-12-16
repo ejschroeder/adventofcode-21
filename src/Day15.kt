@@ -61,11 +61,11 @@ fun main() {
         return distances.last()
     }
 
-    val testInput = readInput("Day15_test")
+    val testInput = readInputLines("Day15_test")
     check(part1(testInput) == 40)
     check(part2(testInput) == 315)
 
-    val input = readInput("Day15")
+    val input = readInputLines("Day15")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }

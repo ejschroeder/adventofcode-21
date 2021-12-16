@@ -15,10 +15,10 @@ fun main() {
             .count { it.first() < it.last() }
     }
 
-    val testInput = readInput("Day01_test")
+    val testInput = readInputLines("Day01_test")
     check(part1(testInput) == 7)
 
-    val input = readInput("Day01")
+    val input = readInputLines("Day01")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }
