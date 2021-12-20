@@ -177,9 +177,3 @@ fun main() {
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }
-
-fun <T> List<T>.elementPairs(): Sequence<Pair<T, T>> = sequence {
-    for(i in 0 until size-1)
-        for(j in i+1 until size)
-            yield(get(i) to get(j))
-}
