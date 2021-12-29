@@ -49,7 +49,6 @@ fun main() {
         val steps = parseInput(input).filter { it.cuboid.intersects(coreCuboid) }
 
         val subSteps = generateSubSteps(steps)
-
         return subSteps.sumOf { if (it.state == State.ON) it.cuboid.volume else -it.cuboid.volume }
     }
 
@@ -57,7 +56,6 @@ fun main() {
         val steps = parseInput(input)
 
         val subSteps = generateSubSteps(steps)
-
         return subSteps.sumOf { if (it.state == State.ON) it.cuboid.volume else -it.cuboid.volume }
     }
 
